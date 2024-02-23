@@ -146,11 +146,16 @@ module.exports = {
   
       const { nome, email, senha, phone, cpf, nasc } = req.body;
   
+      const newUser = {nome, email, senha, phone, cpf, nasc}
+
       try {
-        const userResult = await User.updateOne({ _id: id }, { $set: { nome, email, senha, phone, cpf, nasc } });
-  
-        console.log(`atualizado para: ${nome, email, senha, phone, cpf, nasc}`);
-        return res.json({ nome, email, senha, phone, cpf, nasc });
+        const userResult = await User.updateOne({ _id: id }, { $set: newUser });
+        
+        const user = await User.findOne({ _id: id });
+        
+        console.log(`atualizado para: ${ user  }`);
+        console.log(`LOG: ${ userResult }`);
+        return res.json({user});
   
       } catch (error) {
   

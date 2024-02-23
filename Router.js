@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const userController = require('./Controllers/UserController');
-// const productController = require('./Controllers/ProductController');
+const productController = require('./Controllers/ProductController');
 // const clientController = require('./Controllers/ClientController');
 
 
@@ -30,6 +30,7 @@ router.delete('/DeleteUser/:id', userController.delete);
 
 
 // rotas dos produtos
+router.post('/NewProduct', productController.create);
 
 
 

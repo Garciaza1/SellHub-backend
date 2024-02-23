@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
 const produtoSchema = new mongoose.Schema({
-    nome: { type: String, required: true },
-    preco: { type: Number, required: true },
-    quantidade: { type: Number, required: true },
-    descricao: { type: String, required: true },
+    nome: { type: String },
+    preco: { type: Number },
+    quantidade: { type: Number },
+    descricao: { type: String },
     dataVenda: { type: Date },
     dataInsert: { type: Date },
-    statusVenda: {Type: String, required: true},
+    statusVenda: { Type: String },
+    imagem: { Type: Buffer },
   usuario: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuario' },
   clientesReservados: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Cliente' }],
 });

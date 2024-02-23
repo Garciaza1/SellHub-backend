@@ -8,7 +8,8 @@ const usuarioSchema = new mongoose.Schema({
     phone: { type: String, required: true },
     cpf: { type: String, required: true },
     nasc: { type: String, required: true },
-    produtos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Produto' }]
+    produtos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Produto' }],
+    clientes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Cliente' }],
 });
 
 const Usuario = mongoose.model('Usuario', usuarioSchema);

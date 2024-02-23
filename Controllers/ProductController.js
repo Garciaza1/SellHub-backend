@@ -4,24 +4,23 @@ module.exports = {
 
     async create(req, res) {
 
-        // precias ter o id do ususario que colocou o produto a venda (puxar na req.params ou mandar via input hidden)
-        const { nome, preco, quantidade, descrição, dataVenda, dataIsert, usuario } = req.body
+        const { nome, preco, quantidade, descricao, usuario, imagem } = req.body
 
         try {
 
-            if (!nome || !preco || !quantidade || !descrição || !dataVenda || !dataIsert || !usuario) {
+            if (!nome || !preco || !quantidade || !descricao || !imagem || !usuario) {
                 return res.status(400).json({ error: "è necessario preencher todos os dados!!" });
             }
-
 
             const addProduct = await Products.create({
                 nome,
                 preco,
                 quantidade,
-                descrição,
-                dataVenda,
-                dataIsert,
-                usuario
+                descricao,
+                dataIsert: new Date(),
+                statusVenda: "false",
+                usuario,
+                imagem
             });
             console.log(addProduct);
             return res.json({message: 'foram inseridos os dados:', addProduct});
@@ -31,8 +30,6 @@ module.exports = {
             return res.json({error: 'Erro interno do servidor', err});
         }
 
-
     }
-
 
 }

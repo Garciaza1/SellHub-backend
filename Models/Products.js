@@ -8,7 +8,7 @@ const produtoSchema = new mongoose.Schema({
     dataVenda: { type: Date },
     dataInsert: { type: Date },
     statusVenda: { Type: String },
-    imagem: { Type: Buffer },
+    imagem: { type: String, maxlength: 2000000 },
   usuario: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuario' },
   clientesReservados: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Cliente' }],
 });

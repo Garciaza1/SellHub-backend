@@ -32,6 +32,15 @@ router.delete('/DeleteUser/:id', userController.delete);
 // rotas dos produtos
 router.post('/NewProduct', productController.create);
 
+router.get('/AllProducts', productController.readAll);
+
+router.get('/Product/:id', productController.read);
+
+router.get('/ProductName', productController.readName);
+
+router.delete('/DeleteProduct', productController.delete);
+
+
 
 
 

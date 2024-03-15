@@ -119,6 +119,7 @@ module.exports = {
         }
   
         const addUser = await User.create({
+          tipo: "vendedor",
           nome,
           email,
           senha,

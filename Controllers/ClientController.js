@@ -24,7 +24,7 @@ module.exports = {
           return res.status(401).json({ error: `erro ao enviar os dados` });
         } 
   
-        if (clientntntntntnt.senha !== senha) {
+        if (client.senha !== senha) {
           return res.status(401).json({ error: `Senha inválida ${client.senha}` });
         }
         
@@ -119,6 +119,7 @@ module.exports = {
         }
   
         const addclient = await Client.create({
+          tipo: "cliente",
           nome,
           email,
           senha,

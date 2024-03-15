@@ -3,7 +3,7 @@ const router = express.Router();
 
 const userController = require('./Controllers/UserController');
 const productController = require('./Controllers/ProductController');
-// const clientController = require('./Controllers/ClientController');
+const clientController = require('./Controllers/ClientController');
 
 
 // colocar os controllers
@@ -28,6 +28,19 @@ router.delete('/DeleteUser/:id', userController.delete);
 
 // rotas do client
 
+router.get('/GetClients', clientController.readAll);
+
+router.get('/GetOneClient/:id', clientController.read);
+
+router.get('/findClient/:email', clientController.find);
+
+router.post('/NewClient', clientController.create);
+
+router.post('/ClientLogin', clientController.login);
+
+router.put('/updateClient/:id', clientController.update);
+
+router.delete('/DeleteClient/:id', userController.delete);
 
 // rotas dos produtos
 router.post('/NewProduct', productController.create);
